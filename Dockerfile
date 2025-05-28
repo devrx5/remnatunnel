@@ -1,6 +1,5 @@
 FROM teddysun/xray:1.8.7
 
-# 1. envsubst нужен для подстановки TARGET_HOST
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gettext-base && \
     apt-get clean && \
