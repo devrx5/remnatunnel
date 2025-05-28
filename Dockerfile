@@ -1,7 +1,13 @@
 FROM teddysun/xray:1.8.7
 
+# 1. envsubst нужен для подстановки TARGET_HOST
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gettext-base && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 ENV XRAY_CONF_DIR=/etc/xray \
-    TARGET_HOST=77.73.238.41
+    TARGET_HOST=example.com          # дефолт; Railway перекроет переменной
 
 COPY config.template.json ${XRAY_CONF_DIR}/
 COPY docker-entrypoint.sh /usr/local/bin/entrypoint
