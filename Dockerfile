@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV XRAY_CONF_DIR=/etc/xray \
-    TARGET_HOST=example.com          # дефолт; Railway перекроет переменной
+    TARGET_HOST=example.com
 
 COPY config.template.json ${XRAY_CONF_DIR}/
 COPY docker-entrypoint.sh /usr/local/bin/entrypoint
